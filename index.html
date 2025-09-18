@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Plataforma Matemática PRO — Vídeos por Aula</title>
+  <style>
+    :root{
+      --bg: linear-gradient(180deg,#0f172a 0%, #0b1220 100%);
+      --card-bg: rgba(255,255,255,0.03);
+      --glass: rgba(255,255,255,0.04);
+      --accent1:#7c3aed; --accent2:#06b6d4; --text:#e6eef6;
+      --muted:rgba(230,238,246,0.7);
+      --success:#22c55e;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+    .container{max-width:1150px;margin:28px auto;padding:20px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand h1{margin:0;font-size:20px;letter-spacing:0.2px}
+    .brand p{margin:4px 0 0;color:var(--muted);font-size:13px}
+    .whats{background:linear-gradient(90deg,var(--accent2),var(--accent1));padding:10px 14px;border-radius:10px;color:white;text-decoration:none;font-weight:700}
+    .layout{display:grid;grid-template-columns:320px 1fr;gap:18px;margin-top:18px}
+    .card{background:var(--card-bg);padding:14px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.5);backdrop-filter: blur(6px)}
+    .profile{display:flex;gap:12px;align-items:center}
+    .avatar{width:56px;height:56px;border-radius:10px;background:linear-gradient(90deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:700}
+    .small{color:var(--muted);font-size:13px}
+    nav.side{margin-top:12px;display:flex;flex-direction:column;gap:8px}
+    nav.side a{color:var(--text);text-decoration:none;padding:8px;border-radius:8px;background:transparent;border:1px solid var(--glass);display:block;font-weight:600}
+    main{min-height:600px}
+    h2{margin:0 0 8px 0;color:var(--text)}
+    .lesson{display:grid;grid-template-columns:1fr 420px;gap:12px;align-items:start;margin-bottom:12px}
+    .lesson .content p{color:var(--muted);line-height:1.5}
+    .lesson .media iframe{width:100%;height:240px;border-radius:10px;border:0}
+    .lesson .audio{margin-top:8px}
+    .actions{display:flex;gap:8px;margin-top:10px}
+    .btn{padding:8px 12px;border-radius:8px;border:none;background:linear-gradient(90deg,var(--accent2),var(--accent1));color:white;font-weight:700;cursor:pointer}
+    .ghost{background:transparent;border:1px solid var(--glass);color:var(--muted)}
+    .exercises-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-top:12px}
+    .exercise{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:10px;border-radius:10px}
+    label.small{display:block;color:var(--muted);font-size:13px;margin-bottom:6px}
+    .footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
+    @media(max-width:900px){.layout{grid-template-columns:1fr} .lesson{grid-template-columns:1fr} .lesson .media iframe{height:200px}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <h1>Plataforma Matemática PRO — Vídeo-aulas por Conteúdo</h1>
+        <p>Design moderno • Vídeos seleccionados por aula • Contacto WhatsApp</p>
+      </div>
+      <div class="actions">
+        <a class="whats" id="whatsLink" href="https://wa.me/972597435?text=Olá!%20Quero%20aulas%20mais%20avançadas" target="_blank">Contactar no WhatsApp</a>
+        <button class="btn" id="saveBtn">Guardar progresso</button>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="card">
+        <div class="profile">
+          <div class="avatar" id="avatar">P</div>
+          <div>
+            <div id="profileName" style="font-weight:700">Aluno</div>
+            <div class="small">XP: <span id="xp">0</span></div>
+          </div>
+        </div>
+
+        <nav class="side">
+          <a href="#arith">Aritmética</a>
+          <a href="#fractions">Frações</a>
+          <a href="#decimals">Decimais</a>
+          <a href="#algebra">Álgebra</a>
+          <a href="#geometry">Geometria</a>
+          <a href="#trig">Trigonometria</a>
+          <a href="#stats">Estatística</a>
+          <a href="#calculus">Cálculo</a>
+        </nav>
+
+        <div style="margin-top:12px" class="card">
+          <div class="small">Medalhas</div>
+          <div id="medals" style="margin-top:8px">
+            <div class="small">Nenhuma ainda</div>
+          </div>
+        </div>
+      </aside>
+
+      <main>
+        <section id="lessonsArea" class="card">
+          <h2>🎓 Aulas (com vídeo correspondente)</h2>
+
+          <!-- Aritmética -->
+          <section id="arith" class="lesson">
+            <div class="content">
+              <h3>Aritmética — Adição e Subtração</h3>
+              <p class="small">Conceitos básicos, técnicas de cálculo mental e estratégias de verificação.</p>
+              <p class="small"><strong>Vídeo recomendado:</strong> Khan Academy em Português — Introdução à adição</p>
+              <div class="actions">
+                <button class="btn playAudio">Ouvir resumo</button>
+                <button class="btn ghost" onclick="openYoutube('https://www.youtube.com/watch?v=-8rv-CTRUlY')">Abrir no YouTube</button>
+              </div>
+            </div>
+            <div class="media">
+              <iframe src="https://www.youtube.com/embed/-8rv-CTRUlY" title="Aritmética - Adição"></iframe>
+              <div class="audio"><audio controls preload="none" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg"></audio></div>
+            </div>
+          </section>
+
+          <!-- Frações -->
+          <section id="fractions" class="lesson">
+            <div class="content">
+              <h3>Frações — Conceito e Operações</h3>
+              <p class="small">Como simplificar, somar e subtrair frações. Estratégias para achar o MMC.</p>
+              <p class="small"><strong>Vídeo recomendado:</strong> Ferretto — Frações (Aula)</p>
+              <div class="actions">
+                <button class="btn playAudio">Ouvir resumo</button>
+                <button class="btn ghost" onclick="openYoutube('https://www.youtube.com/watch?v=i2GEeGSrZ_E')">Abrir no YouTube</button>
+              </div>
+            </div>
+            <div class="media">
+              <iframe src="https://www.youtube.com/embed/i2GEeGSrZ_E" title="Frações - Ferretto"></iframe>
+              <div class="audio"><audio controls preload="none" src="https://actions.google.com/sounds/v1/alarms/digital_watch_alarm_long.ogg"></audio></div>
+            </div>
+          </section>
+
+          <!-- Decimais -->
+          <section id="decimals" class="lesson">
+            <div class="content">
+              <h3>Decimais — Operações e Conversões</h3>
+              <p class="small">Trabalhar com casas decimais, arredondamentos e conversão para frações.</p>
+              <p class="small"><strong>Vídeo recomendado:</strong> Khan Academy — Decimais</p>
+              <div class="actions">
+                <button class="btn playAudio">Ouvir resumo</button>
+                <button class="btn ghost" onclick="openYoutube('https://www.youtube.com/watch?v=8Tu2xDGDHr4')">Abrir no YouTube</button>
+              </div>
+            </div>
+            <div class="media">
+              <iframe src="https://www.youtube.com/embed/8Tu2xDGDHr4" title="Decimais - Khan Academy"></iframe>
+              <div class="audio"><audio controls preload="none" src="https://actions.google.com/sounds/v1/alarms/medium_bell_ringing_near.ogg"></audio></div>
+            </div>
+          </section>
+
+          <!-- Porcentagem -->
+          <section id="percent" class="lesson">
+            <div class="content">
+              <h3>Porcentagem — Descontos e Acréscimos</h3>
+              <p class="small">Aplicações em finanças pessoais e problemas do dia-a-dia.</p>
+              <p class="small"><strong>Vídeo recomendado:</strong> Me Salva! — Porcentagem</p>
+              <div class="actions">
+                <button class="btn playAudio">Ouvir resumo</button>
+                <button class="btn ghost" onclick="openYoutube('https://www.youtube.com/watch?v=5crPZ51tx9U')">Abrir no YouTube</button>
+              </div>
+            </div>
+            <div class="media">
+              <iframe src="https://www.youtube.com/embed/5crPZ51tx9U" title="Porcentagem - Me Salva"></iframe>
+              <div class="audio"><audio controls preload="none" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg"></audio></div>
+            </div>
+          </section>
+
+          <!-- Álgebra -->
+          <section id="algebra" class="lesson">
+            <div class="content">
+              <h3>Álgebra — Equações do 1º Grau</h3>
+              <p class="small">Isolar a incógnita, operações inversas e verificação de soluções.</p>
+              <p class="small"><strong>Vídeo recomendado:</strong> Equações do 1º Grau — explicação</p>
+              <div class="actions">
+                <button class="btn playAudio">Ouvir resumo</button>
+                <button class="btn ghost" onclick="openYoutube('https://www.youtube.com/watch?v=x4k8950MVeg')">Abrir no YouTube</button>
+              </div>
+            </div>
+            <div class="media">
+              <iframe src="https://www.youtube.com/embed/x4k8950MVeg" title="Equações 1º grau"></iframe>
+              <div class="audio"><audio controls preload="none" src="https://actions.google.com/sounds/v1/alarms/digital_watch_alarm_long.ogg"></audio></div>
+            </div>
+          </section>
+
+          <!-- Geometria -->
+          <section id="geometry" class="lesson">
+            <div class="content">
+              <h3>Geometria — Área do Triângulo e Figuras Planas</h3>
+              <p class="small">Fórmulas comuns, exemplos resolvidos e aplicações práticas.</p>
+              <p class="small"><strong>Vídeo recomendado:</strong> Prof. Gis — Área do Triângulo</p>
+              <div class="actions">
+                <button class="btn playAudio">Ouvir resumo</button>
+                <button class="btn ghost" onclick="openYoutube('https://www.youtube.com/watch?v=UXoBHQBT5OE')">Abrir no YouTube</button>
+              </div>
+            </div>
+            <div class="media">
+              <iframe src="https://www.youtube.com/embed/UXoBHQBT5OE" title="Área do triângulo"></iframe>
+              <div class="audio"><audio controls preload="none" src="https://actions.google.com/sounds/v1/alarms/medium_bell_ringing_near.ogg"></audio></div>
+            </div>
+          </section>
+
+          <!-- Trigonometria -->
+          <section id="trig" class="lesson">
+            <div class="content">
+              <h3>Trigonometria — Seno, Cosseno e Tangente</h3>
+              <p class="small">Definições, relações e exercícios básicos em triângulos retângulos.</p>
+              <p class="small"><strong>Vídeo recomendado:</strong> Trigonometria — Prof. Gis</p>
+              <div class="actions">
+                <button class="btn playAudio">Ouvir resumo</button>
+                <button class="btn ghost" onclick="openYoutube('https://www.youtube.com/watch?v=D-E_A04ReTE')">Abrir no YouTube</button>
+              </div>
+            </div>
+            <div class="media">
+              <iframe src="https://www.youtube.com/embed/D-E_A04ReTE" title="Trigonometria"></iframe>
+              <div class="audio"><audio controls preload="none" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg"></audio></div>
+            </div>
+          </section>
+
+          <!-- Estatística -->
+          <section id="stats" class="lesson">
+            <div class="content">
+              <h3>Estatística — Média, Mediana e Moda</h3>
+              <p class="small">Como calcular e interpretar medidas de tendência central.</p>
+              <p class="small"><strong>Vídeo recomendado:</strong> Aula sobre média, moda e mediana</p>
+              <div class="actions">
+                <button class="btn playAudio">Ouvir resumo</button>
+                <button class="btn ghost" onclick="openYoutube('https://www.youtube.com/watch?v=GIzwKJL33_g')">Abrir no YouTube</button>
+              </div>
+            </div>
+            <div class="media">
+              <iframe src="https://www.youtube.com/embed/GIzwKJL33_g" title="Média Moda Mediana"></iframe>
+              <div class="audio"><audio controls preload="none" src="https://actions.google.com/sounds/v1/alarms/digital_watch_alarm_long.ogg"></audio></div>
+            </div>
+          </section>
+
+          <!-- Cálculo (intro) -->
+          <section id="calculus" class="lesson">
+            <div class="content">
+              <h3>Cálculo — Ideia de Derivada</h3>
+              <p class="small">Intuição sobre taxas de variação e limites.</p>
+              <p class="small"><strong>Vídeo recomendado:</strong> Introdução às derivadas</p>
+              <div class="actions">
+                <button class="btn playAudio">Ouvir resumo</button>
+                <button class="btn ghost" onclick="openYoutube('https://www.youtube.com/watch?v=-GjwJOplSUs')">Abrir no YouTube</button>
+              </div>
+            </div>
+            <div class="media">
+              <iframe src="https://www.youtube.com/embed/-GjwJOplSUs" title="Derivadas intro"></iframe>
+              <div class="audio"><audio controls preload="none" src="https://actions.google.com/sounds/v1/alarms/medium_bell_ringing_near.ogg"></audio></div>
+            </div>
+          </section>
+
+        </section>
+
+        <section id="exercises" class="card">
+          <h2>🧮 Exercícios</h2>
+          <label class="small">Escolha o nível</label>
+          <select id="level">
+            <option value="easy">Fácil</option>
+            <option value="medium">Médio</option>
+            <option value="hard">Difícil</option>
+          </select>
+          <div class="exercises-grid" id="exGrid">
+            <!-- exercises injected by JS -->
+          </div>
+        </section>
+
+        <div class="footer card">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div class="small">© 2025 Plataforma Matemática PRO</div>
+            <div class="small">Número para aulas avançadas: +972597435</div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+<script>
+const profile = {name:'Aluno', xp:0, medals:[]};
+function save(){ localStorage.setItem('math_pro_profile', JSON.stringify(profile)); alert('Progresso guardado localmente.'); }
+document.getElementById('saveBtn').onclick = save;
+document.getElementById('whatsLink').href = 'https://wa.me/972597435?text=' + encodeURIComponent('Olá! Quero aulas mais fortes e avançadas.');
+
+document.querySelectorAll('.playAudio').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const lesson = btn.closest('.lesson');
+    const audio = lesson.querySelector('audio');
+    if(audio){ audio.play(); profile.xp += 2; document.getElementById('xp').textContent = profile.xp; save(); }
+  });
+});
+
+function openYoutube(url){ window.open(url, '_blank', 'noopener'); }
+
+function genExercise(level){
+  const ops = ['+','-','×','÷'];
+  let a, b, op, ans;
+  if(level==='easy'){ a = Math.floor(Math.random()*10)+1; b = Math.floor(Math.random()*10)+1; }
+  else if(level==='medium'){ a = Math.floor(Math.random()*50)+5; b = Math.floor(Math.random()*20)+2; }
+  else { a = Math.floor(Math.random()*200)+10; b = Math.floor(Math.random()*100)+5; }
+  op = ops[Math.floor(Math.random()*4)];
+  if(op === '+') ans = a + b;
+  if(op === '-') ans = a - b;
+  if(op === '×') ans = a * b;
+  if(op === '÷'){ ans = a; let q = a*b; return {q: q + ' ÷ ' + b, ans: String(a)}; }
+  return {q: a + ' ' + op + ' ' + b, ans: String(ans)};
+}
+
+function renderExercises(n=12){
+  const cont = document.getElementById('exGrid'); cont.innerHTML='';
+  const level = document.getElementById('level').value;
+  for(let i=0;i<n;i++){
+    const e = genExercise(level);
+    const div = document.createElement('div');
+    div.className = 'exercise card';
+    div.innerHTML = '<div style="font-weight:700;margin-bottom:6px">'+ e.q +'</div><input placeholder="Resposta" class="exin"/><div style="margin-top:8px"><button class="btn answerBtn">Responder</button><button class="btn ghost" style="margin-left:6px" onclick="showExplain(this)">Explicação</button></div><div class="exres small" style="margin-top:8px"></div>';
+    cont.appendChild(div);
+    const answerBtn = div.querySelector('.answerBtn');
+    const input = div.querySelector('.exin');
+    const res = div.querySelector('.exres');
+    answerBtn.onclick = ()=>{
+      if(input.value.trim() === e.ans){ res.textContent = '✅ Correto! +5 XP'; res.style.color='var(--success)'; profile.xp += 5; document.getElementById('xp').textContent = profile.xp; save(); }
+      else{ res.textContent = '❌ Errado — tenta de novo'; res.style.color='salmon'; }
+    };
+  }
+}
+document.getElementById('level').onchange = ()=> renderExercises(12);
+renderExercises(12);
+
+function showExplain(btn){
+  alert('Veja a explicação no vídeo da aula correspondente — os vídeos estão alinhados à teoria.');
+}
+</script>
+</body>
+</html>
+
