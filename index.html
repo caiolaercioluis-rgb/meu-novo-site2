@@ -324,4 +324,87 @@ function showExplain(btn){
 </script>
 </body>
 </html>
+Atualização do site - novo layout moderno
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meu Site Moderno</title>
+<style>
+  /* Reset e estilos básicos */
+  * { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif;}
+  body { background: #f0f0f0; color:#333; transition: background 0.5s, color 0.5s;}
+  header { background:#4CAF50; padding: 15px; color:#fff; position:fixed; width:100%; top:0; z-index:100;}
+  header nav a { margin:0 15px; color:#fff; text-decoration:none; font-weight:bold;}
+  main { padding-top:80px; max-width:1000px; margin:0 auto;}
+  section { padding:50px 20px;}
+  h1,h2 { margin-bottom:20px;}
+  .card { background:#fff; padding:20px; margin:10px 0; border-radius:10px; box-shadow:0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s;}
+  .card:hover { transform: translateY(-5px); }
+  footer { background:#333; color:#fff; text-align:center; padding:20px; margin-top:40px;}
+  /* Modo IA */
+  body.ia-mode { background:#111; color:#0f0;}
+  body.ia-mode header { background:#000;}
+  body.ia-mode .card { background:#222; color:#0f0;}
+  .toggle-btn { position:fixed; right:20px; bottom:20px; padding:10px 20px; background:#4CAF50; color:#fff; border:none; border-radius:5px; cursor:pointer; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Meu Site</h1>
+  <nav>
+    <a href="#videos">Vídeos</a>
+    <a href="#imagens">Imagens</a>
+    <a href="#noticias">Notícias</a>
+    <a href="#ferramentas">Ferramentas</a>
+  </nav>
+</header>
+
+<main>
+  <section id="home">
+    <h2>Bem-vindo!</h2>
+    <p>Este é um site moderno com Modo IA, vídeos, imagens e ferramentas interativas.</p>
+  </section>
+
+  <section id="videos">
+    <h2>Vídeos</h2>
+    <div class="card"><a href="https://www.youtube.com/" target="_blank">Vídeo 1</a></div>
+    <div class="card"><a href="https://www.youtube.com/" target="_blank">Vídeo 2</a></div>
+  </section>
+
+  <section id="imagens">
+    <h2>Imagens</h2>
+    <div class="card">Imagem 1</div>
+    <div class="card">Imagem 2</div>
+  </section>
+
+  <section id="noticias">
+    <h2>Notícias</h2>
+    <div class="card">Notícia 1</div>
+    <div class="card">Notícia 2</div>
+  </section>
+
+  <section id="ferramentas">
+    <h2>Ferramentas</h2>
+    <div class="card">Calculadora</div>
+    <div class="card">Conversor</div>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 Meu Site. Todos os direitos reservados.
+</footer>
+
+<button class="toggle-btn" onclick="toggleIA()">Modo IA</button>
+
+<script>
+  function toggleIA() {
+    document.body.classList.toggle('ia-mode');
+  }
+</script>
+
+</body>
+</html>
 
